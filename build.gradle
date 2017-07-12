@@ -19,9 +19,9 @@ ext {
 	linkHomepage = 'http://projects.spring.io/spring-batch/'
 	linkCi       = 'https://build.spring.io/browse/BATCH'
 	linkIssue    = 'https://jira.spring.io/browse/BATCH'
-	linkScmUrl           = 'https://github.com/spring-projects/spring-batch'
-	linkScmConnection    = 'git://github.com/spring-projects/spring-batch.git'
-	linkScmDevConnection = 'git@github.com:spring-projects/spring-batch.git'
+	linkScmUrl           = 'ssh://git@am-vmstash.ametras.com:7999/spring/spring-batch.git'
+	linkScmConnection    = 'git://am-vmstash.ametras.com/spring/spring-batch.git'
+	linkScmDevConnection = 'git@am-vmstash.ametras.com:spring/spring-batch.git'
 
 	mainProjects = subprojects.findAll { !it.name.endsWith('tests') && !it.name.endsWith('samples') && it.name.startsWith('spring-batch-')}
 }
