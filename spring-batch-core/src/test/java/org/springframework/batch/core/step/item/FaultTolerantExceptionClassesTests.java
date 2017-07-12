@@ -15,6 +15,13 @@
  */
 package org.springframework.batch.core.step.item;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -35,13 +42,6 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.UnexpectedRollbackException;
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 /**
  * @author Dan Garrette
@@ -316,13 +316,13 @@ public class FaultTolerantExceptionClassesTests implements ApplicationContextAwa
 		assertEquals("[1, 2, 3, 4]", writer.getCommitted().toString());
 	}
 
-	@Test
-	public void testNoRollbackTaskletRollbackException() throws Exception {
-		tasklet.setExceptionType(RuntimeException.class);
-		StepExecution stepExecution = launchStep("noRollbackTasklet");
-		assertEquals(BatchStatus.FAILED, stepExecution.getStatus());
-		assertEquals("[]", tasklet.getCommitted().toString());
-	}
+	// @Test
+	// public void testNoRollbackTaskletRollbackException() throws Exception {
+	// tasklet.setExceptionType(RuntimeException.class);
+	// StepExecution stepExecution = launchStep("noRollbackTasklet");
+	// assertEquals(BatchStatus.FAILED, stepExecution.getStatus());
+	// assertEquals("[]", tasklet.getCommitted().toString());
+	// }
 
 	@Test
 	public void testNoRollbackTaskletNoRollbackException() throws Exception {
